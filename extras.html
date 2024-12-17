@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    <title>Допоміжні матеріали</title>
+    <style>
+        .folder {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .folder:hover {
+            background-color: lightsteelblue;
+        }
+
+        .file {
+            background-color: lightgray;
+            margin-left: 20px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Допоміжні матеріали</h1>
+    <div id="folders-container"></div>
+
+<div id="footerMenu">
+    <a href="index.html" class="nav-btn" data-section="lessons">Уроки</a>
+    <a href="homework.html" class="nav-btn" data-section="homework">Домашнє завдання</a>
+    <a href="answers.html" class="nav-btn" data-section="answers">Перевірка відповідей</a>
+    <a href="extras.html" class="nav-btn" data-section="extras">Додаткові матеріали</a>
+</div>
+    <script>
+        
+        const folders = [
+            { name: "Папка 1", files: ["Файл 1", "Файл 2"] },
+            { name: "Папка 2", files: ["Файл 3", "Файл 4"] },
+            
+        ];
+
+        function renderFolders() {
+            const container = document.getElementById("folders-container");
+            container.innerHTML = ""; 
+
+            folders.forEach((folder, index) => {
+                const folderElement = document.createElement("div");
+                folderElement.classList.add("folder");
+                folderElement.textContent = folder.name;
+
+                folderElement.addEventListener("click", () => openFolder(index));
+
+                container.appendChild(folderElement);
+            });
+        }
+
+        function openFolder(index) {
+            const folder = folders[index];
+            alert(`Відкрито папку: ${folder.name}`);
+
+            const folderElement = document.getElementsByClassName("folder")[index];
+            const filesList = document.createElement("div");
+
+            folder.files.forEach(file => {
+                const fileElement = document.createElement("div");
+                fileElement.classList.add("file");
+                fileElement.textContent = file;
+                filesList.appendChild(fileElement);
+            });
+
+            folderElement.appendChild(filesList);
+        }
+
+        renderFolders();
+    </script>
+
+</body>
+
+</html>

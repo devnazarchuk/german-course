@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles.css">
+	<title>Домашні завдання</title>
+	<style>
+		.card {
+			border: 1px solid #ccc;
+			padding: 20px;
+			margin: 10px 0;
+			display: inline-block;
+			width: 200px;
+			vertical-align: top;
+		}
+
+		.homework-title {
+			font-weight: bold;
+		}
+
+		.progress {
+			margin-top: 10px;
+		}
+
+		.checkbox {
+			margin-right: 10px;
+		}
+		#homework-container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 15px;
+            justify-content: center;
+        }
+		.homework-button {
+			display: block;
+			margin-top: 10px;
+			padding: 5px 10px;
+			background-color: lightgray;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.homework-button:hover {
+			background-color: gray;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Домашні завдання</h1>
+	<div id="homework-container"></div>
+	
+	<div id="footerMenu">
+		<a href="index.html" class="nav-btn" data-section="lessons">Уроки</a>
+		<a href="homework.html" class="nav-btn" data-section="homework">Домашнє завдання</a>
+		<a href="answers.html" class="nav-btn" data-section="answers">Перевірка відповідей</a>
+		<a href="extras.html" class="nav-btn" data-section="extras">Додаткові матеріали</a>
+	</div>
+
+	<script>
+		
+		const homework = [];
+		for (let i = 1; i <= 50; i++) {
+			homework.push({
+				title: `Завдання ${i}`,
+				description: `Опис домашнього завдання ${i}.`,
+				progress: localStorage.getItem(`homework${i}-progress`) || 0, 
+			});
+		}
+
+		function renderHomework() {
+			const container = document.getElementById("homework-container");
+			container.innerHTML = ""; 
+
+			homework.forEach((task, index) => {
+				const card = document.createElement("div");
+				card.classList.add("card");
+
+				card.innerHTML = `
+            <div class="homework-title">${task.title}</div>
+            <div>${task.description}</div>
+            <div class="progress">
+                <input class="checkbox" type="checkbox" id="homework-${index}" ${task.progress === '1' ? 'checked' : ''} onclick="updateHomeworkProgress(${index})">
+                <label for="homework-${index}">Позначити як виконане</label>
+            </div>
+            <button class="homework-button" onclick="openHomework(${index})">Відкрити завдання</button>
+        `;
+
+				container.appendChild(card);
+			});
+		}
+
+		function updateHomeworkProgress(index) {
+			const checkbox = document.getElementById(`homework-${index}`);
+			const task = homework[index];
+			task.progress = checkbox.checked ? 1 : 0;
+			localStorage.setItem(`homework${index}-progress`, task.progress); 
+		}
+
+		function openHomework(index) {
+			alert(`Відкрито завдання: ${homework[index].title}`);
+			
+		}
+
+		renderHomework();
+	</script>
+
+</body>
+
+</html>

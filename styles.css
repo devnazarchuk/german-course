@@ -1,0 +1,351 @@
+/* Загальні стилі */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a2e;
+    color: #eaeaea;
+}
+
+header {
+    background: linear-gradient(45deg, #3f2b96, #a8c0ff);
+    text-align: center;
+    padding: 1rem;
+    color: white;
+}
+
+main {
+    padding: 1rem;
+    min-height: 70vh;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: #16213e;
+    padding: 0.5rem 0;
+}
+
+.nav-btn {
+    background: #0f3460;
+    color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: transform 0.2s ease, background 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-btn.active {
+    background: #e84545;
+    /* Колір активної кнопки */
+    color: #fff;
+    /* Білий текст для контрасту */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Легке тінювання */
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+}
+
+.nav-btn:active {
+    transform: translateY(3px);
+}
+
+/* Карточки уроків */
+.card {
+    background: #0f3460;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Легке збільшення карточки */
+    background: #53354a;
+    /* Зміна фону при наведенні */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Збільшення тіні */
+}
+
+.card button {
+    background: #53354a;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #e84545;
+}
+
+/* Стилізація кастомних чекбоксів */
+input[type="checkbox"] {
+    display: none;
+    /* Приховуємо стандартний чекбокс */
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+input[type="checkbox"]+label {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+input[type="checkbox"]+label:hover{
+        transform: scale(1.05);
+}
+input[type="checkbox"]:checked+label {
+    color: #e84545;
+}
+
+/* Стилі модального вікна підтвердження */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #2c2c54;
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.modal-button {
+    background-color: #e84545;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #53354a;
+}
+
+/* Стилі для кнопки закриття модального вікна */
+.close-modal {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Стилізація чекбоксів і загальних елементів */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Стилізація прогресбару */
+.progress-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+}
+
+#progress-bar {
+    background-color: #53354a;
+}
+.nav-btn {
+    background-color: #4CAF50;
+    /* Зелене фон */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+    /* Темніший зелений при наведенні */
+}
+
+.nav-btn.active {
+    background-color: #3e8e41;
+    /* Активна кнопка */
+}
+/* Основні стилі */
+
+#navbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
+
+.nav-btn.active {
+    background-color: #3e8e41;
+}
+
+#content {
+    padding: 20px;
+}
+
+/* Стилізація для карток уроків */
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.card button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Чекбокси і лейбли */
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+/* Прогресбар */
+progress {
+    margin-top: 20px;
+}
+
+#navbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
+
+.nav-btn.active {
+    background-color: #3e8e41;
+}
+
+#content {
+    padding: 20px;
+}
+.card button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Чекбокси і лейбли */
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #0f0; /* Зелений колір чекбоксу */
+    box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.5); /* Тінь */
+}
+
+input[type="checkbox"]:checked + label {
+    color: #0f0; /* Зелений колір тексту */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7); /* Тінь для тексту */
+}

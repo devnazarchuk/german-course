@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    <title>Уроки німецької</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px 0;
+            display: inline-block;
+            width: 200px;
+            vertical-align: top;
+        }
+
+        .lesson-title {
+            font-weight: bold;
+        }
+
+        .progress {
+            margin-top: 10px;
+        }
+
+        .checkbox {
+            margin-right: 10px;
+        }
+
+        .lesson-button {
+            display: block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: lightgray;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .lesson-button:hover {
+            background-color: gray;
+        }
+        #lessons-container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 15px;
+            justify-content: center;
+        }
+        .folder {
+            margin-top: 10px;
+            padding: 5px;
+            cursor: pointer;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .folder:hover {
+            background-color: lightsteelblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Уроки німецької</h1>
+    <div id="lessons-container"></div>
+    
+    <div id="footerMenu">
+        <a href="index.html" class="nav-btn" data-section="lessons">Уроки</a>
+        <a href="homework.html" class="nav-btn" data-section="homework">Домашнє завдання</a>
+        <a href="answers.html" class="nav-btn" data-section="answers">Перевірка відповідей</a>
+        <a href="extras.html" class="nav-btn" data-section="extras">Додаткові матеріали</a>
+    </div>
+
+    <script>
+        
+        const lessons = [];
+        for (let i = 1; i <= 50; i++) {
+            lessons.push({
+                title: `Урок ${i}`,
+                description: `Опис уроку ${i}.`,
+                progress: localStorage.getItem(`lesson${i}-progress`) || 0, 
+            });
+        }
+
+        function renderLessons() {
+            const container = document.getElementById("lessons-container");
+            container.innerHTML = ""; 
+
+            lessons.forEach((lesson, index) => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                card.innerHTML = `
+            <div class="lesson-title">${lesson.title}</div>
+            <div>${lesson.description}</div>
+            <div class="progress">
+                <input class="checkbox" type="checkbox" id="lesson-${index}" ${lesson.progress === '1' ? 'checked' : ''} onclick="updateProgress(${index})">
+                <label for="lesson-${index}">Позначити як завершений</label>
+            </div>
+            <button class="lesson-button" onclick="openLesson(${index})">Відкрити урок</button>
+        `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function updateProgress(index) {
+            const checkbox = document.getElementById(`lesson-${index}`);
+            const lesson = lessons[index];
+            lesson.progress = checkbox.checked ? 1 : 0;
+            localStorage.setItem(`lesson${index}-progress`, lesson.progress); 
+        }
+
+        function openLesson(index) {
+            alert(`Відкрито урок: ${lessons[index].title}`);
+            
+        }
+
+        renderLessons();
+    </script>
+
+</body>
+
+</html>

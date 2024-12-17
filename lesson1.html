@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1: Алфавіт, фонетика, числівники</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+
+<body>
+    <header>
+        <h1>Урок 1: Алфавіт, базова фонетика та числівники до 20</h1>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="lesson1.html" class="active">Урок 1</a>
+            <a href="lesson2.html">Урок 2</a> 
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"> Мета уроку</h2>
+            <ul>
+                <li>Вивчити німецький алфавіт і правила читання основних букв та сполучень.</li>
+                <li>Ознайомитися з базовими словами для представлення себе.</li>
+                <li>Навчитися числівників від 1 до 20, зрозуміти їх побудову.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"> 1. Алфавіт</h2>
+            <p>Повторюємо німецький алфавіт із транскрипцією українською:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Буква</th>
+                        <th>Транскрипція</th>
+                        <th>Приклад</th>
+                        <th>Переклад</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A</td>
+                        <td>[а]</td>
+                        <td>Apfel</td>
+                        <td>яблуко</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>[бе]</td>
+                        <td>Banane</td>
+                        <td>банан</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"> 2. Основні правила читання</h2>
+            <h3>2.1 Голосні літери</h3>
+            <p><strong>A:</strong> Довге [а:] — Vater [фа:тер] (батько). Коротке [а] — Mann [ман] (чоловік).</p>
+            <p><strong>O:</strong> Довге [о:] — Boot [бо:т] (човен). Коротке [о] — Gott [гот] (бог).</p>
+            
+        </section>
+
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"> 3. Числівники від 1 до 20</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Число</th>
+                        <th>Німецькою</th>
+                        <th>Транскрипція</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>eins</td>
+                        <td>[айнс]</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>zwei</td>
+                        <td>[цвай]</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"> 4. Словниковий запас уроку</h2>
+            <p>Ось декілька прикладів:</p>
+            <ul>
+                <li><strong>der Apfel (яблуко):</strong> Ich esse einen Apfel. (Я їм яблуко.)</li>
+                <li><strong>die Banane (банан):</strong> Ich habe eine Banane. (У мене є банан.)</li>
+                
+            </ul>
+        </section>
+
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"> 5. Практика</h2>
+            <ul>
+                <li><strong>Аудіювання:</strong> Слухай числівники та алфавіт на YouTube.</li>
+                <li><strong>Письмово:</strong> Напиши 10 речень, використовуючи числа від 1 до 20.</li>
+                <li><strong>Говоріння:</strong> Практикуй діалоги.</li>
+            </ul>
+        </section>
+
+        <div class="progress-container">
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <p>Прогрес: <span id="progress-text">0%</span></p>
+        </div>
+    </main>
+
+    <footer>
+       <div class="navigation">
+    <button class="nav-btn" onclick="loadSection('lessons')">Уроки</button>
+    <button class="nav-btn" onclick="loadSection('homework')">ДЗ</button>
+    <button class="nav-btn" onclick="loadSection('answers')">Словники</button>
+    <button class="nav-btn" onclick="loadSection('extras')">Доп</button>
+</div>
+
+    </footer>
+
+    <script src="progress.js"></script> 
+</body>
+
+</html>
