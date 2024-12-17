@@ -1,200 +1,224 @@
 <!DOCTYPE html>
 <html lang="uk">
 
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Курс німецької</title>
+    <title>Вітаємо на курсі німецької мови</title>
     <style>
-        .card {
-            border: 1px solid #ccc;
+        /* Глобальні стилі */
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #0f3460;
+            --neon-color: #e94560;
+            --text-color: #fff;
+            --card-bg: #16213e;
+            --shadow-color: rgba(233, 69, 96, 0.5);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--neon-color);
+            color: #fff;
+            text-align: center;
             padding: 20px;
+            font-size: 2rem;
+            box-shadow: 0 0 10px var(--shadow-color);
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: var(--secondary-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-color);
+            font-size: 1.5rem;
+            box-shadow: 0 0 15px var(--shadow-color);
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 0 15px var(--shadow-color);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--neon-color);
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
             margin: 10px 0;
+            color: var(--neon-color);
         }
 
-        #progressBar {
-            width: 100%;
-            height: 20px;
-        }
-
-        .nav-btn {
-            margin: 5px;
-            padding: 10px;
-            cursor: pointer;
-            background-color: lightgray;
+        .card a {
             text-decoration: none;
-            color: black;
-            border: none;
-            border-radius: 5px;
+            color: var(--text-color);
         }
 
-        .nav-btn.active {
-            background-color: gray;
-        }
-
-        /* Фіксоване меню внизу */
-        #footerMenu {
+        /* Навігаційна панель */
+        .nav-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: #333;
-            color: white;
             display: flex;
             justify-content: space-around;
+            background-color: var(--secondary-bg);
             padding: 10px;
-            visibility: visible;
-            opacity: 1;
+            box-shadow: 0 0 15px var(--shadow-color);
+            border-radius: 15px 15px 0 0;
         }
 
-        #content {
-            padding-bottom: 50px;
-            /* Місце для фіксованого меню */
+        .nav-bar a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: var(--neon-color);
+        }
+
+        /* Кнопка зміни теми */
+        .theme-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--neon-color);
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--shadow-color);
+            transition: background-color 0.3s;
+        }
+
+        .theme-button:hover {
+            background-color: #ff1744;
         }
     </style>
 </head>
 
 <body>
-    <div id="content">
-        
-    </div>
-    <progress id="progressBar" value="0" max="100"></progress>
+    <!-- Кнопка зміни теми -->
+    <button class="theme-button" onclick="toggleTheme()">Змінити тему</button>
 
-    <div id="footerMenu">
-        <a href="index.html" class="nav-btn" data-section="lessons">Уроки</a>
-        <a href="homework.html" class="nav-btn" data-section="homework">Домашнє завдання</a>
-        <a href="answers.html" class="nav-btn" data-section="answers">Перевірка відповідей</a>
-        <a href="extras.html" class="nav-btn" data-section="extras">Додаткові матеріали</a>
+    <!-- Заголовок -->
+    <header>Вітаємо на курсі німецької мови</header>
+
+    <!-- Логотип -->
+    <div class="container">
+        <div class="logo">Логотип</div>
     </div>
 
+    <!-- Основні картки -->
+    <div class="cards">
+        <!-- Уроки -->
+        <div class="card">
+            <a href="lessons.html">
+                <img src="placeholder.png" alt="Уроки">
+                <h3>Уроки</h3>
+                <p>Покрокове вивчення мови.</p>
+            </a>
+        </div>
+        <!-- Домашнє завдання -->
+        <div class="card">
+            <a href="homework.html">
+                <img src="placeholder.png" alt="Домашнє завдання">
+                <h3>Домашнє завдання</h3>
+                <p>Вправи для закріплення знань.</p>
+            </a>
+        </div>
+        <!-- Відповіді -->
+        <div class="card">
+            <a href="answers.html">
+                <img src="placeholder.png" alt="Відповіді">
+                <h3>Перевірка відповідей</h3>
+                <p>Перевірте свої знання.</p>
+            </a>
+        </div>
+        <!-- Додаткові матеріали -->
+        <div class="card">
+            <a href="extras.html">
+                <img src="placeholder.png" alt="Додаткові матеріали">
+                <h3>Додаткові матеріали</h3>
+                <p>Корисні ресурси для навчання.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Закріплена панель навігації -->
+    <div class="nav-bar">
+        <a href="index.html">🏠 Головна</a>
+        <a href="lessons.html">📚 Уроки</a>
+        <a href="homework.html">✏️ Завдання</a>
+        <a href="answers.html">✅ Відповіді</a>
+        <a href="extras.html">📎 Додаткові</a>
+    </div>
+
+    <!-- JavaScript для зміни теми -->
     <script>
-        
-        const lessons = [
-            {
-                title: "Урок 1: Основи німецької",
-                description: "Алфавіт, базові слова.",
-                isCompleted: false,
-            },
-            {
-                title: "Урок 2: Знайомство",
-                description: "Як представитись.",
-                isCompleted: false,
-            },
-            {
-                title: "Урок 3: Числа",
-                description: "Вивчення чисел та лічби.",
-                isCompleted: false,
-            },
-        ];
+        let isDarkMode = true;
 
-        let courseProgress = 0;
-
-        function loadSection(section) {
-            const content = document.getElementById("content");
-            content.innerHTML = ""; 
-
-            if (section === "lessons") {
-                lessons.forEach((lesson, index) => {
-                    const card = document.createElement("div");
-                    card.classList.add("card");
-                    card.innerHTML = `
-                        <h3 onclick="toggleCheckbox('task${index}')">${lesson.title}</h3>
-                        <p>${lesson.description}</p>
-                        <input type="checkbox" id="task${index}" ${lesson.isCompleted ? "checked" : ""} onclick="markLessonComplete(${index})">
-                        <label for="task${index}">Позначити як завершений</label>
-                        <button onclick="openLesson(${index})">Відкрити урок</button> 
-                    `;
-                    content.appendChild(card);
-                });
-            } else if (section === "homework") {
-                const currentLesson = lessons[courseProgress / 10 - 1]; 
-                if (currentLesson && currentLesson.isCompleted) {
-                    content.innerHTML = `
-                        <h2>Домашнє завдання до уроку ${currentLesson.title}</h2>
-                        <p>Позначте виконані завдання:</p>
-                        <div>
-                            <input type="checkbox" id="task1">
-                            <label for="task1">Завдання 1</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="task2">
-                            <label for="task2">Завдання 2</label>
-                        </div>
-                        <button onclick="markHomeworkComplete()">Завершити</button>
-                    `;
-                } else {
-                    content.innerHTML = `
-                        <h2>Домашнє завдання</h2>
-                        <p>Щоб перейти до домашнього завдання, потрібно спершу завершити урок.</p>
-                    `;
-                }
-            } else if (section === "answers") {
-                content.innerHTML = `
-                    <h2>Перевірка відповідей</h2>
-                    <ul>
-                        <li>Завдання 1: відповідь 1</li>
-                        <li>Завдання 2: відповідь 2</li>
-                    </ul>
-                `;
-            } else if (section === "extras") {
-                content.innerHTML = `
-                    <h2>Додаткові матеріали</h2>
-                    <p>Завантажте PDF або перегляньте відео для закріплення матеріалу.</p>
-                `;
-            }
-        }
-
-        function markLessonComplete(lessonIndex) {
-            const lesson = lessons[lessonIndex];
-            lesson.isCompleted = !lesson.isCompleted;  
-            if (lesson.isCompleted) {
-                courseProgress += 10; 
+        function toggleTheme() {
+            if (isDarkMode) {
+                document.documentElement.style.setProperty('--primary-bg', '#f4f4f4');
+                document.documentElement.style.setProperty('--secondary-bg', '#ccc');
+                document.documentElement.style.setProperty('--text-color', '#333');
+                document.documentElement.style.setProperty('--card-bg', '#fff');
+                document.documentElement.style.setProperty('--neon-color', '#3f51b5');
+                isDarkMode = false;
             } else {
-                courseProgress -= 10; 
+                document.documentElement.style.setProperty('--primary-bg', '#1a1a2e');
+                document.documentElement.style.setProperty('--secondary-bg', '#0f3460');
+                document.documentElement.style.setProperty('--text-color', '#fff');
+                document.documentElement.style.setProperty('--card-bg', '#16213e');
+                document.documentElement.style.setProperty('--neon-color', '#e94560');
+                isDarkMode = true;
             }
-            updateProgressBar();
-            loadSection("lessons"); 
         }
-
-        function markHomeworkComplete() {
-            alert("Домашнє завдання завершено!");
-            courseProgress += 5;
-            updateProgressBar();
-            loadSection("homework"); 
-        }
-
-        function updateProgressBar() {
-            const progressBar = document.getElementById("progressBar");
-            progressBar.value = courseProgress;
-
-            if (courseProgress === 100) {
-                const homeworkButton = document.createElement("button");
-                homeworkButton.innerText = "Перейти до домашнього завдання";
-                homeworkButton.onclick = () => loadSection("homework");
-                document.getElementById("content").appendChild(homeworkButton);
-            } else {
-                
-                const existingButton = document.querySelector("button");
-                if (existingButton) {
-                    existingButton.remove();
-                }
-            }
-            console.log(`Прогрес курсу: ${courseProgress}%`);
-        }
-
-        document.querySelectorAll(".nav-btn").forEach((button) => {
-            button.addEventListener("click", () => {
-                document
-                    .querySelectorAll(".nav-btn")
-                    .forEach((btn) => btn.classList.remove("active"));
-                button.classList.add("active");
-            });
-        });
-
-        window.onload = () => {
-            loadSection("lessons"); 
-        };
     </script>
 </body>
 
