@@ -97,37 +97,44 @@
 
     /* Навігаційна панель */
     .nav-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-around;
-        background-color: var(--secondary-bg);
-        padding: 10px;
-        box-shadow: 0 0 15px var(--shadow-color);
-        border-radius: 15px 15px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    background-color: var(--secondary-bg);
+    padding: 10px 0; 
+    box-shadow: 0 0 15px var(--shadow-color);
+    border-radius: 15px 15px 0 0;
     }
 
+    /* Стилі для кожної комірки */
     .nav-bar a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-size: 1rem;
-        display: flex;
+        display: flex; 
         flex-direction: column;
-        align-items: center;
+        align-items: center; 
+        justify-content: center; 
+        text-decoration: none; 
+        color: var(--text-color); 
+        font-size: 0.9rem; 
         transition: color 0.3s;
     }
 
-    .nav-bar a:hover {
+    .nav-bar p { 
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+        .nav-bar a:hover {
         color: var(--neon-color);
     }
 
-    /* Кнопка зміни теми */
     .theme-button {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 7px;
+        right: 10px;
         background-color: var(--neon-color);
         color: #fff;
         border: none;
@@ -165,7 +172,7 @@
         }
 
         .nav-bar {
-            padding: 8px;
+            padding-bottom: 10px;
         }
 
         .nav-bar a {
@@ -210,13 +217,18 @@
             padding: 6px 12px;
         }
     }
+    @media (max-width: 390px) {
+        header{
+            font-size: 12px;
+        }
+    }
 </style>
 
 </head>
 
 <body>
     <!-- Кнопка зміни теми -->
-    <button class="theme-button" onclick="toggleTheme()">Змінити тему</button>
+    <button class="theme-button" onclick="toggleTheme()">💡</button>
 
     <!-- Заголовок -->
     <header>Вітаємо на курсі німецької мови</header>
@@ -264,11 +276,11 @@
 
     <!-- Закріплена панель навігації -->
     <div class="nav-bar">
-        <a href="index.html">🏠 Головна</a>
-        <a href="lessons.html">📚 Уроки</a>
-        <a href="homework.html">✏️ Завдання</a>
-        <a href="answers.html">✅ Відповіді</a>
-        <a href="extras.html">📎 Додаткові</a>
+        <a href="index.html"> <p>🏠</p> Головна</a>
+        <a href="lessons.html"><p>📚</p> Уроки</a>
+        <a href="homework.html"><p>✏️</p> Завдання</a>
+        <a href="answers.html"><p>✅</p> Відповіді</a>
+        <a href="extras.html"><p>📎</p> Додаткові</a>
     </div>
 
     <!-- JavaScript для зміни теми -->
