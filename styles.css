@@ -16,7 +16,9 @@ pre {
 #nextLesson.active{
 display: unset;
 }
-
+a{
+    text-decoration: none;
+}
 header {
     background: linear-gradient(45deg, #3f2b96, #a8c0ff);
     text-align: center;
