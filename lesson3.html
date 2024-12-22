@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Урок 1: Алфавіт, фонетика, числівники</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <h1>Урок 1: Алфавіт, базова фонетика та числівники до 20</h1>
+        <h1>Урок 3 Алфавіт, базова фонетика та числівники до 20</h1>
         <!-- <nav>
             <a href="index.html">Головна</a>
             <a href="lesson1.html" class="active">Урок 1</a>
@@ -30,7 +30,7 @@
         <section>
             <h2><input type="checkbox" class="section-checkbox"> 1. Алфавіт</h2>
             <p>Повторюємо німецький алфавіт із транскрипцією українською:</p>
-    <pre>1. Алфавіт
+            <pre>1. Алфавіт
     Повторюємо німецкий алфавіт із транскрипцією українською:
     A [а] — Apfel (яблуко) [апфель]
     B [бе] — Banane (банан) [банане]
@@ -62,7 +62,7 @@
         </section>
 
         <section>
-<pre><h2><input type="checkbox" class="section-checkbox">2. Основні правила читання</h2>
+            <pre><h2><input type="checkbox" class="section-checkbox">2. Основні правила читання</h2>
     2.1 Голосні літери
     A, E, I, O, U читаються інакше залежно від довготи:
     A:
@@ -97,7 +97,7 @@
 
         <section>
             <h2><input type="checkbox" class="section-checkbox"> 3. Числівники від 1 до 20</h2>
-<pre>
+            <pre>
     1–12 вивчаємо окремо, з 13 до 20 є правило.
     Числівники 1–12
     1 - eins [айнс]
@@ -130,7 +130,7 @@
         <section>
             <h2><input type="checkbox" class="section-checkbox"> 4. Словниковий запас уроку</h2>
             <p>Ось декілька прикладів:</p>
-<pre>
+            <pre>
     der Apfel (яблуко) – [дер а́пфель]
     Ich esse einen Apfel. (Я їм яблуко.)
     Mein Bruder isst einen Apfel. (Мій брат їсть яблуко.)
@@ -201,7 +201,7 @@
 
         <section>
             <h2><input type="checkbox" class="section-checkbox"> 5. Практика</h2>
-<pre>
+            <pre>
     Аудіювання:
     Слухай числівники та алфавіт на YouTube. Повторюй у голос.
     Письмово:
@@ -216,9 +216,9 @@
 
 </pre>
         </section>
-<section>
-    <h2><input type="checkbox" class="section-checkbox">Додаткові поради</h2>
-    <pre>Повторюй артиклі!
+        <section>
+            <h2><input type="checkbox" class="section-checkbox">Додаткові поради</h2>
+            <pre>Повторюй артиклі!
     Запам’ятовуй слова разом з їх артиклями — це допоможе у майбутньому правильно вживати слова у реченнях.
     Практика речень:
     Читай приклади вголос кілька разів, це закріплює вимову.
@@ -228,14 +228,72 @@
     Напиши нові слова на окремих картках. На одній стороні слово, на іншій артикль. Перевіряй себе.
     Вивчай алфавіт з використанням пісень.
     (Ось кілька веселих та простих відео на YouTube для вивчення алфавіту на рівнях A0-A1:</pre>
-</section>
+        </section>
         <div class="progress-container">
             <progress id="progress-bar" value="0" max="100"></progress>
             <p>Прогрес: <span id="progress-text">0%</span></p>
+            <a href="homework3.html"><button id="nextLesson">Домашнє завдання до уроку</button></a>
         </div>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.section-checkbox');
+            const nextButton = document.getElementById('nextLesson');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
 
-    <script src="progress.js"></script> 
+            // Функція для перевірки прогресу
+            function updateProgress() {
+                const total = checkboxes.length;
+                const checked = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+                const progress = Math.round((checked / total) * 100);
+
+                progressBar.value = progress;
+                progressText.textContent = `${progress}%`;
+
+                if (progress === 100) {
+                    nextButton.classList.toggle('active');
+                } else {
+                    nextButton.classList.remove('active');
+                }
+            }
+
+            // Зберегти відповіді
+            function saveAnswers() {
+                const answers = Array.from(checkboxes).map(checkbox => checkbox.checked);
+                localStorage.setItem('lesson3Answers', JSON.stringify(answers));
+            }
+
+            // Перехід до наступного уроку
+            function goToNextLesson() {
+                saveAnswers(); // Зберегти відповіді перед переходом
+                window.location.href = 'homework3.html';
+            }
+
+            // Завантаження збережених відповідей
+            function loadAnswers() {
+                const savedAnswers = localStorage.getItem('lesson3Answers');
+                if (savedAnswers) {
+                    const answersArray = JSON.parse(savedAnswers) || [];
+                    checkboxes.forEach((checkbox, index) => {
+                        checkbox.checked = answersArray[index] || false; // Безпечна перевірка
+                    });
+                    updateProgress(); // Оновити прогрес після завантаження
+                }
+            }
+
+            // Слухачі подій для чекбоксів
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    updateProgress();
+                    saveAnswers();
+                });
+            });
+
+            // Завантаження відповідей під час відкриття сторінки
+            loadAnswers();
+        });
+    </script>
 </body>
 
 </html>
