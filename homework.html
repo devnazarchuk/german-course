@@ -216,37 +216,7 @@ header {
 	</div>
 
 	<script>
-		// const homework = [];
-		// for (let i = 1; i <= 50; i++) {
-		// 	homework.push({
-		// 		title: `Завдання ${i}`,
-		// 		description: `Опис домашнього завдання ${i}.`,
-		// 		progress: localStorage.getItem(`homework${i}-progress`) || 0,
-		// 	});
-		// }
-
-		// function renderHomework() {
-		// 	const container = document.getElementById("homework-container");
-		// 	container.innerHTML = "";
-
-		// 	homework.forEach((task, index) => {
-		// 		const card = document.createElement("div");
-		// 		card.classList.add("card");
-
-		// 		card.innerHTML = `
-        //             <div class="homework-title">${task.title}</div>
-        //             <div>${task.description}</div>
-        //             <div class="progress">
-        //                 <input type="checkbox" id="homework-${index}" ${task.progress == 1 ? 'checked' : ''} onclick="updateProgress(${index})">
-        //                 <label for="homework-${index}">Виконано</label>
-        //             </div>
-        //             <button class="homework-button" onclick="openHomework(${index})">Відкрити завдання</button>
-        //         `;
-
-		// 		container.appendChild(card);
-		// 	});
-		// }
-
+		
 		function updateProgress(index) {
 			const checkbox = document.getElementById(`homework-${index}`);
 			homework[index].progress = checkbox.checked ? 1 : 0;
@@ -258,7 +228,6 @@ header {
 
 		}
 
-		// Зміна теми
 		function toggleTheme() {
 			const currentTheme = document.documentElement.getAttribute("data-theme");
 			const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -266,13 +235,11 @@ header {
 			localStorage.setItem("theme", newTheme);
 		}
 
-		// Завантаження теми
 		(function loadTheme() {
 			const savedTheme = localStorage.getItem("theme") || "dark";
 			document.documentElement.setAttribute("data-theme", savedTheme);
 		})();
 
-		// renderHomework();
 		       let isDarkMode = true;
 
 				function toggleTheme() {

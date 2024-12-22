@@ -277,7 +277,6 @@
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
 
-            // Функція для перевірки прогресу
             function updateProgress() {
                 const total = checkboxes.length;
                 const checked = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
@@ -293,31 +292,27 @@
                 }
             }
 
-            // Зберегти відповіді
             function saveAnswers() {
                 const answers = Array.from(checkboxes).map(checkbox => checkbox.checked);
                 localStorage.setItem('homework2Answers', JSON.stringify(answers));
             }
 
-            // Перехід до наступного уроку
             function goToNextLesson() {
-                saveAnswers(); // Зберегти відповіді перед переходом
+                saveAnswers(); 
                 window.location.href = 'lesson2.html';
             }
 
-            // Завантаження збережених відповідей
             function loadAnswers() {
                 const savedAnswers = localStorage.getItem('homework2Answers');
                 if (savedAnswers) {
                     const answersArray = JSON.parse(savedAnswers) || [];
                     checkboxes.forEach((checkbox, index) => {
-                        checkbox.checked = answersArray[index] || false; // Безпечна перевірка
+                        checkbox.checked = answersArray[index] || false; 
                     });
-                    updateProgress(); // Оновити прогрес після завантаження
+                    updateProgress(); 
                 }
             }
 
-            // Слухачі подій для чекбоксів
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', () => {
                     updateProgress();
@@ -325,7 +320,6 @@
                 });
             });
 
-            // Завантаження відповідей під час відкриття сторінки
             loadAnswers();
         });
     </script>
