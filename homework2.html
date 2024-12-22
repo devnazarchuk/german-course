@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Завдання 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #0f3460;
+            --neon-color: #e94560;
+            --text-color: #fff;
+            --card-bg: #16213e;
+            --shadow-color: rgba(233, 69, 96, 0.5);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        pre {
+            font-size: 1rem;
+            font-family: unset;
+        }
+
+        header {
+            background-color: var(--neon-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+            box-shadow: 0 0 10px var(--shadow-color);
+        }
+
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h1>Домашнє завдання до уроку 2</h1>
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"></h2>
+            <p></p>
+            <pre>
+
+                </pre>
+        </section>
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"></h2>
+            <p></p>
+            <pre>
+
+                    </pre>
+        </section>
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"></h2>
+            <p></p>
+            <pre>
+
+                        </pre>
+        </section>
+        <section>
+            <h2><input type="checkbox" class="section-checkbox"></h2>
+            <p></p>
+            <pre>
+
+                            </pre>
+        </section>
+        <div class="progress-container">
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <p>Прогрес: <span id="progress-text">0%</span></p>
+        </div>
+    </main>
+
+    <script src="progress.js"></script>
+    <a href="homework.html">Повернутися до списку завдань</a>
+
+</body>
+
+</html>

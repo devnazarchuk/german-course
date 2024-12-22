@@ -62,7 +62,10 @@ header {
 .theme-toggle:hover {
     background-color: #ff1744;
 }
-
+    .card a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
 /* Container */
 .container {
     text-align: center;
@@ -177,7 +180,34 @@ header {
 
 	<h1>Список домашніх завдань</h1>
 	<div id="homework-container"></div>
+<div class="cards">
+    <div class="card">
+    <h3>Домашнє завдання до уроку 1</h3>
+    <p>Закріпіть знання виконуючи завдання</p>
+    <a href="homework1.html">Перейти до ДЗ</a>
+    </div>
+    <div class="card">
+    <h3>Домашнє завдання до уроку 2</h3>
+    <p>Закріпіть знання виконуючи завдання</p>
+    <a href="homework2.html">Перейти до ДЗ</a>
+    </div>
+    <div class="card">
+    <h3>Домашнє завдання до уроку 3</h3>
+    <p>Закріпіть знання виконуючи завдання</p>
+    <a href="homework3.html">Перейти до ДЗ</a>
+    </div>
+    <div class="card">
+    <h3>Домашнє завдання до уроку 4</h3>
+    <p>Закріпіть знання виконуючи завдання</p>
+    <a href="homework4.html">Перейти до ДЗ</a>
+    </div>
+    <div class="card">
+    <h3>Домашнє завдання до уроку 5</h3>
+    <p>Закріпіть знання виконуючи завдання</p>
+    <a href="homework5.html">Перейти до ДЗ</a>
+    </div>
 
+</div>
 	<!-- Нижнє меню -->
 	<div class="nav-bar">
 		<a href="index.html">🏠 Головна</a>
@@ -188,36 +218,36 @@ header {
 	</div>
 
 	<script>
-		const homework = [];
-		for (let i = 1; i <= 50; i++) {
-			homework.push({
-				title: `Завдання ${i}`,
-				description: `Опис домашнього завдання ${i}.`,
-				progress: localStorage.getItem(`homework${i}-progress`) || 0,
-			});
-		}
+		// const homework = [];
+		// for (let i = 1; i <= 50; i++) {
+		// 	homework.push({
+		// 		title: `Завдання ${i}`,
+		// 		description: `Опис домашнього завдання ${i}.`,
+		// 		progress: localStorage.getItem(`homework${i}-progress`) || 0,
+		// 	});
+		// }
 
-		function renderHomework() {
-			const container = document.getElementById("homework-container");
-			container.innerHTML = "";
+		// function renderHomework() {
+		// 	const container = document.getElementById("homework-container");
+		// 	container.innerHTML = "";
 
-			homework.forEach((task, index) => {
-				const card = document.createElement("div");
-				card.classList.add("card");
+		// 	homework.forEach((task, index) => {
+		// 		const card = document.createElement("div");
+		// 		card.classList.add("card");
 
-				card.innerHTML = `
-                    <div class="homework-title">${task.title}</div>
-                    <div>${task.description}</div>
-                    <div class="progress">
-                        <input type="checkbox" id="homework-${index}" ${task.progress == 1 ? 'checked' : ''} onclick="updateProgress(${index})">
-                        <label for="homework-${index}">Виконано</label>
-                    </div>
-                    <button class="homework-button" onclick="openHomework(${index})">Відкрити завдання</button>
-                `;
+		// 		card.innerHTML = `
+        //             <div class="homework-title">${task.title}</div>
+        //             <div>${task.description}</div>
+        //             <div class="progress">
+        //                 <input type="checkbox" id="homework-${index}" ${task.progress == 1 ? 'checked' : ''} onclick="updateProgress(${index})">
+        //                 <label for="homework-${index}">Виконано</label>
+        //             </div>
+        //             <button class="homework-button" onclick="openHomework(${index})">Відкрити завдання</button>
+        //         `;
 
-				container.appendChild(card);
-			});
-		}
+		// 		container.appendChild(card);
+		// 	});
+		// }
 
 		function updateProgress(index) {
 			const checkbox = document.getElementById(`homework-${index}`);
@@ -227,6 +257,7 @@ header {
 
 		function openHomework(index) {
 			alert(`Відкрито завдання: ${homework[index].title}`);
+
 		}
 
 		// Зміна теми
@@ -243,7 +274,7 @@ header {
 			document.documentElement.setAttribute("data-theme", savedTheme);
 		})();
 
-		renderHomework();
+		// renderHomework();
 		       let isDarkMode = true;
 
 				function toggleTheme() {
