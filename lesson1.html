@@ -232,10 +232,68 @@
         <div class="progress-container">
             <progress id="progress-bar" value="0" max="100"></progress>
             <p>Прогрес: <span id="progress-text">0%</span></p>
+            <button id="nextLesson">Наступний урок</button>
         </div>
     </main>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('.section-checkbox');
+        const nextButton = document.getElementById('nextLesson');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
 
-    <script src="progress.js"></script> 
+        // Функція для перевірки прогресу
+        function updateProgress() {
+            const total = checkboxes.length;
+            const checked = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+            const progress = Math.round((checked / total) * 100);
+
+            progressBar.value = progress;
+            progressText.textContent = `${progress}%`;
+
+            if (progress === 100) {
+                nextButton.classList.toggle('active');
+            } else {
+                nextButton.classList.remove('active');
+            }
+        }
+
+        // Зберегти відповіді
+        function saveAnswers() {
+            const answers = Array.from(checkboxes).map(checkbox => checkbox.checked);
+            localStorage.setItem('lesson1Answers', JSON.stringify(answers));
+        }
+
+        // Перехід до наступного уроку
+        function goToNextLesson() {
+            saveAnswers(); // Зберегти відповіді перед переходом
+            window.location.href = 'lesson2.html';
+        }
+
+        // Завантаження збережених відповідей
+        function loadAnswers() {
+            const savedAnswers = localStorage.getItem('lesson1Answers');
+            if (savedAnswers) {
+                const answersArray = JSON.parse(savedAnswers) || [];
+                checkboxes.forEach((checkbox, index) => {
+                    checkbox.checked = answersArray[index] || false; // Безпечна перевірка
+                });
+                updateProgress(); // Оновити прогрес після завантаження
+            }
+        }
+
+        // Слухачі подій для чекбоксів
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                updateProgress();
+                saveAnswers();
+            });
+        });
+
+        // Завантаження відповідей під час відкриття сторінки
+        loadAnswers();
+    });
+</script>
 </body>
 
 </html>

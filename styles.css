@@ -10,6 +10,13 @@ pre {
     font-size: 1.1rem;
     font-family: unset;
 }
+#nextLesson{
+    display: none;
+}
+#nextLesson.active{
+display: unset;
+}
+
 header {
     background: linear-gradient(45deg, #3f2b96, #a8c0ff);
     text-align: center;
